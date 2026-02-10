@@ -22,7 +22,7 @@ if(WIN32)
     set(PLATFORM_DEFS _CRT_SECURE_NO_WARNINGS NOMINMAX UNICODE _UNICODE)
 
 elseif(APPLE)
-#    enable_language(OBJCXX)
+    enable_language(OBJCXX)
 
     list(APPEND BREAKPAD_SOURCES
         ${BREAKPAD_SRC_DIR}/client/mac/handler/exception_handler.cc
