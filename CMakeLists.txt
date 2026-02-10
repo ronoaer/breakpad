@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(breakpad LANGUAGES C CXX ASM OBJCXX)
+project(breakpad LANGUAGES C CXX ASM)
 
 set(BREAKPAD_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
@@ -22,6 +22,8 @@ if(WIN32)
     set(PLATFORM_DEFS _CRT_SECURE_NO_WARNINGS NOMINMAX UNICODE _UNICODE)
 
 elseif(APPLE)
+    enable_language(OBJCXX)
+
     list(APPEND BREAKPAD_SOURCES
         ${BREAKPAD_SRC_DIR}/client/mac/handler/exception_handler.cc
         ${BREAKPAD_SRC_DIR}/client/mac/handler/minidump_generator.cc
