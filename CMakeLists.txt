@@ -36,6 +36,7 @@ elseif(APPLE)
         ${BREAKPAD_SRC_DIR}/common/mac/macho_walker.cc
         ${BREAKPAD_SRC_DIR}/common/mac/string_utilities.cc
         ${BREAKPAD_SRC_DIR}/common/mac/arch_utilities.cc
+        ${BREAKPAD_SRC_DIR}/common/mac/bootstrap_compat.cc
         ${BREAKPAD_SRC_DIR}/common/mac/MachIPC.mm
         ${BREAKPAD_SRC_DIR}/client/minidump_file_writer.cc
     )
