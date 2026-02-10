@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(breakpad LANGUAGES C CXX ASM)
+project(breakpad LANGUAGES C CXX ASM OBJCXX)
 
 set(BREAKPAD_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
@@ -27,11 +27,14 @@ elseif(APPLE)
         ${BREAKPAD_SRC_DIR}/client/mac/handler/minidump_generator.cc
         ${BREAKPAD_SRC_DIR}/client/mac/handler/dynamic_images.cc
         ${BREAKPAD_SRC_DIR}/client/mac/handler/breakpad_nlist_64.cc
+        ${BREAKPAD_SRC_DIR}/client/mac/crash_generation/crash_generation_client.cc
         ${BREAKPAD_SRC_DIR}/common/mac/file_id.cc
         ${BREAKPAD_SRC_DIR}/common/mac/macho_id.cc
         ${BREAKPAD_SRC_DIR}/common/mac/macho_utilities.cc
         ${BREAKPAD_SRC_DIR}/common/mac/macho_walker.cc
         ${BREAKPAD_SRC_DIR}/common/mac/string_utilities.cc
+        ${BREAKPAD_SRC_DIR}/common/mac/arch_utilities.cc
+        ${BREAKPAD_SRC_DIR}/common/mac/MachIPC.mm
         ${BREAKPAD_SRC_DIR}/client/minidump_file_writer.cc
     )
     set(PLATFORM_LIBS "-framework CoreFoundation")
